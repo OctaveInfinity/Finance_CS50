@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+    <!-- Button trigger modal -->
+
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+        Information
+    </button>
+
+    <p> </p>
+    <p> </p>
+    <p> </p>
+    <p> </p>
+
+    <form action="{{ url_for('quote') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <input type="text" class="form-control" name="symbol" placeholder="Symbol" autofocus autocomplete="off" required > <!-- required -->
+            </div>
+
+            <button class="btn btn-primary" type="submit"> Get  price </button>
+        </fieldset>
+    </form>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" align="left" >
+                    <p>
+                        If You need to know the stock Symbol of some company, go to
+                        <a href="https://finance.yahoo.com/">finance.yahoo.com</a>
+                        and find it or You can use these Symbols: <b>nok, googl,
+                        aapl, msft, sne, tsla, amzn, ebay, cost, gm, wmt.</b>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

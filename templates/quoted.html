@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+        <p align="center">
+            One stock of {{ name }} , ({{ symbol }}) costs ${{'%0.2f'|format(price) }}
+        </p>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+
+    <form action="{{ url_for('register') }}" method="post"> <!-- action="/register" -->
+        <fieldset align="center">
+            <div class="form-group">
+                <input type="text" class="form-control" name="username" placeholder="Username" autofocus autocomplete="off" required > <!-- required -->
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" id="password" autocomplete="off" required > <!-- required -->
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="confirmation" placeholder="Confirmation" id="confirmation" autocomplete="off" required > <!-- required -->
+            </div>
+
+            <!--
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email" autocomplete="off">
+            </div>
+            <!-- can be empty -->
+
+            <button class="btn btn-primary" type="submit">Register</button>
+
+        </fieldset>
+    </form>
+
+
+    <script>
+        document.querySelector('form').onsubmit = function() {
+            if ( document.getElementById('password').value != document.getElementById('confirmation').value ) {
+                alert('Password and Confirmation are not the same !');
+                return false;
+            }
+            return true;
+        };
+    </script>
+
+
+{% endblock %}

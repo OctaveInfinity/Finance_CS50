@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+
+
+    <!-- Button trigger modal -->
+
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+      Information
+    </button>
+
+    <p> </p>
+    <p> </p>
+    <p> </p>
+    <p> </p>
+
+    <form action="{{ url_for('sell') }}" method="post">
+        <fieldset align="center">
+            <div class="form-group"> <!-- mb-? впливає на відстань полями по вертикалі -->
+                <select class="form-control" name="symbol" required > <!-- required -->
+                    <option disabled selected value>Symbol</option>
+                    {% for j in symbols %}
+                        <option class="form-control" autocomplete="off" name="{{ j.symbol }}" autofocus >{{ j.symbol }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" name="shares" placeholder="Shares" min="1" autocomplete="off" required > <!-- required -->
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Sell stocks</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" align="left" >
+                    <p>
+                        You can only sell shares of companies (Symbols)
+                        that you own and no more (Shares) than you have.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
